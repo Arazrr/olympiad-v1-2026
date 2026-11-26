@@ -26,4 +26,14 @@ class OlympiadV1Test {
         assertEquals(1, Task1.reverseNumber(1));
         assertEquals(123, Task1.reverseNumber(321));
     }
+
+    @Test
+    @DisplayName("Find missing number")
+    void testTask2_FindMissingNumber() {
+        assertEquals(2, Task2.findMissingNumber(new int[]{3, 1, 4, 5}));
+        assertEquals(1, Task2.findMissingNumber(new int[]{2, 3}));
+        assertEquals(4, Task2.findMissingNumber(new int[]{1, 2, 3}));
+        assertEquals(3, Task2.findMissingNumber(new int[]{1, 2, 4, 5}));
+        assertEquals(4, Task2.findMissingNumber(new int[]{1, 2, 3, 5}));
+    }
 }
