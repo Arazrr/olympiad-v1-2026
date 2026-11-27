@@ -4,6 +4,10 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  checks: write
+  contents: read
+
 jobs:
   run-tests:
     runs-on: ubuntu-latest
@@ -31,3 +35,11 @@ jobs:
 
       - name: Run JUnit tests
         run: mvn test -B
+
+      - name: Publish Test Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Результати олімпіадних тестів
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
